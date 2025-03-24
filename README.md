@@ -18,9 +18,6 @@ Welcome to my personal portfolio website repository! This project showcases my s
 - Tailwind CSS
 - Framer Motion (for animations)
 
-## 📷 Preview
-![Portfolio Screenshot](https://your-image-url.com)
-
 ## 📂 Installation
 Clone the repository and install dependencies:
 ```sh
