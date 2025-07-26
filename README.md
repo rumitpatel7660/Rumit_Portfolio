@@ -3,7 +3,7 @@
 Welcome to my personal portfolio website repository! This project showcases my skills, projects, and experience as a developer.
 
 ## 🚀 Live Demo
-🔗 [Visit my portfolio](https://rumitpatel7660.github.io/Rumit-Portfolio/)
+🔗 [Visit my portfolio](https://rumitpatel7660.github.io/Rumit_Portfolio/)
 
 ## 📌 Features
 - 🖥️ Responsive design
