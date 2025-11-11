@@ -38,6 +38,9 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
     <title>Rumit Vasoya - Portfolio</title>
     
     <!-- Structured Data -->
@@ -209,12 +212,15 @@
     <!-- About Section -->
     <section id="about" class="py-20 bg-white dark:bg-slate-800">
         <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6 text-center md:text-left">About Me</h2>
             <div class="flex flex-col md:flex-row gap-12">
-                <div class="md:w-1/2 fade-up-element">
-                    <h2 class="text-3xl font-bold mb-6">About Me</h2>
-                    <p class="text-lg mb-4">I'm a passionate developer with a strong foundation in both machine learning and full-stack development. My journey began with a fascination for how data can tell stories and how technology can solve real-world problems.</p>
-                    <p class="text-lg mb-4">With experience in Python, JavaScript, and modern frameworks, I've worked on projects ranging from deepfake detection systems to scalable web applications. My goal is to continue growing as a developer while contributing to meaningful projects that make a difference.</p>
-                    <p class="text-lg mb-6">When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.</p>
+                <!-- <div class="md:w-1/2 fade-up-element"> -->
+                <div class="md:w-1/2">
+                    <div class="mb-6">
+                        <p class="text-lg mb-4">I'm a passionate developer with a strong foundation in both machine learning and full-stack development. My journey began with a fascination for how data can tell stories and how technology can solve real-world problems.</p>
+                        <p class="text-lg mb-4">With experience in Python, JavaScript, and modern frameworks, I've worked on projects ranging from deepfake detection systems to scalable web applications. My goal is to continue growing as a developer while contributing to meaningful projects that make a difference.</p>
+                        <p class="text-lg mb-6">When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.</p>
+                    </div>
                     <a href="images/Rumit's Resume.pdf" download class="inline-flex items-center px-4 py-2 bg-slate-900 dark:bg-slate-700 text-white rounded-lg hover:bg-slate-800 transition-colors">
                         <i class="fas fa-download mr-2"></i>
                         Download Resume
@@ -296,13 +302,13 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-16">Featured Work</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
                 <!-- Project 1 -->
                 <div class="project-card bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
                     <img src="images/carinfox.png" alt="CarinfoX Project" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold mb-2">CarInfoX</h3>
-                        <p class="text-slate-600 dark:text-slate-300 mb-4">A vehicle information system with predictive maintenance capabilities using machine learning algorithms.</p>
+                        <p class="text-slate-600 dark:text-slate-300 mb-4 flex-grow">A vehicle information system with predictive maintenance capabilities using machine learning algorithms.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-2 py-1 bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 text-xs rounded">Python</span>
                             <span class="px-2 py-1 bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 text-xs rounded">TensorFlow</span>
@@ -318,9 +324,9 @@
                 <!-- Project 2 -->
                 <div class="project-card bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
                     <img src="images/product.png" alt="Product Management System" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold mb-2">E-Commerce Product Showcase website</h3>
-                        <p class="text-slate-600 dark:text-slate-300 mb-4">Design modern e-commerce product showcase website with modern ideas.</p>
+                        <p class="text-slate-600 dark:text-slate-300 mb-4 flex-grow">Design modern e-commerce product showcase website with modern ideas.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-2 py-1 bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 text-xs rounded">JavaScript</span>
                             <span class="px-2 py-1 bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 text-xs rounded">Tailwind CSS</span>
@@ -336,9 +342,9 @@
                 <!-- Project 3 -->
                 <div class="project-card bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
                     <img src="images/plantcare.png" alt="PlantCare Project" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold mb-2">PlantCare</h3>
-                        <p class="text-slate-600 dark:text-slate-300 mb-4">IoT-based plant monitoring system with disease detection using computer vision and sensor data analysis.</p>
+                        <p class="text-slate-600 dark:text-slate-300 mb-4 flex-grow">IoT-based plant monitoring system with disease detection using computer vision and sensor data analysis.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-2 py-1 bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 text-xs rounded">Python</span>
                             <span class="px-2 py-1 bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 text-xs rounded">TensorFlow</span>
@@ -351,13 +357,12 @@
                     </div>
                 </div>
                 
-                    
                 <!-- Project 4 -->
                 <div class="project-card bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
                     <img src="images/lucifer.png" alt="Lucifer Project" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold mb-2">Lucifer</h3>
-                        <p class="text-slate-600 dark:text-slate-300 mb-4">A simple static website using HTML and CSS.</p>
+                        <p class="text-slate-600 dark:text-slate-300 mb-4 flex-grow">A simple static website using HTML and CSS.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-2 py-1 bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 text-xs rounded">HTML</span>
                             <span class="px-2 py-1 bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 text-xs rounded">CSS</span>
@@ -369,7 +374,6 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </section>
@@ -423,6 +427,11 @@
                         <div>
                             <label for="email" class="block mb-2 font-medium">Email</label>
                             <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-slate-700">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block mb-2 font-medium">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-slate-700">
                         </div>
                         
                         <div>
@@ -600,36 +609,7 @@
                     });
                 });
             });
-            
-            // Form submission
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Honeypot check
-                    const honeypot = document.getElementById('hp-field');
-                    if (honeypot && honeypot.value !== '') {
-                        return; // Bot detected
-                    }
-                    
-                    // Form validation would go here
-                    const formMessage = document.getElementById('form-message');
-                    if (formMessage) {
-                        formMessage.classList.remove('hidden');
-                        formMessage.classList.add('bg-green-100', 'text-green-800');
-                        formMessage.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Thank you for your message! I\'ll get back to you soon.';
-                        
-                        // Reset form
-                        contactForm.reset();
-                        
-                        // Hide message after 5 seconds
-                        setTimeout(() => {
-                            formMessage.classList.add('hidden');
-                        }, 5000);
-                    }
-                });
-            }
+            // Form submission is handled in script.js with EmailJS
             
             // Respect prefers-reduced-motion
             const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');

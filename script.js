@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initProjectCards();
     initContactForm();
     initThemeToggle();
+    
+    // Initialize EmailJS
+    emailjs.init("MzqQDD5jsc2L0JWpv");
 });
 
 // Mobile Menu Toggle
@@ -22,6 +25,10 @@ function initMobileMenu() {
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.remove('hidden');
             document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            // Add focus to close button for accessibility
+            if (closeMenuButton) {
+                closeMenuButton.focus();
+            }
         });
     }
     
@@ -29,6 +36,10 @@ function initMobileMenu() {
         closeMenuButton.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
             document.body.style.overflow = ''; // Restore scrolling
+            // Return focus to menu button
+            if (mobileMenuButton) {
+                mobileMenuButton.focus();
+            }
         });
     }
     
@@ -38,7 +49,28 @@ function initMobileMenu() {
         link.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
             document.body.style.overflow = '';
+            // Focus on the clicked link's target section
+            const targetId = link.getAttribute('href');
+            if (targetId && targetId.startsWith('#')) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    setTimeout(() => {
+                        targetElement.focus();
+                    }, 100);
+                }
+            }
         });
+    });
+    
+    // Close menu when pressing Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = '';
+            if (mobileMenuButton) {
+                mobileMenuButton.focus();
+            }
+        }
     });
 }
 
@@ -228,7 +260,7 @@ function initContactForm() {
         
         // Simple validation
         if (!data.name || !data.email || !data.message) {
-            showFormMessage('Please fill in all fields.', 'error');
+            showFormMessage('Please fill in all required fields.', 'error');
             return;
         }
         
@@ -239,19 +271,40 @@ function initContactForm() {
             return;
         }
         
-        // Simulate form submission
+        // Phone number validation (if provided)
+        if (data.phone && data.phone.trim() !== '') {
+            const phoneRegex = /^[+]?[0-9][\s\-0-9]{7,}$/;
+            if (!phoneRegex.test(data.phone)) {
+                showFormMessage('Please enter a valid phone number.', 'error');
+                return;
+            }
+        }
+        
+        // Send email using EmailJS
         const submitButton = contactForm.querySelector('button[type="submit"]');
         const originalText = submitButton.textContent;
         submitButton.textContent = 'Sending...';
         submitButton.disabled = true;
         
-        // Simulate API call
-        setTimeout(() => {
+        // Send the email
+        emailjs.send("service_vjkcoi5", "template_54701de", {
+            from_name: data.name,
+            from_email: data.email,
+            phone_number: data.phone || 'Not provided',
+            message: data.message
+        })
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
             showFormMessage('Thank you for your message! I\'ll get back to you soon.', 'success');
             contactForm.reset();
+        }, function(error) {
+            console.log('FAILED...', error);
+            showFormMessage('Oops! Something went wrong. Please try again later.', 'error');
+        })
+        .finally(() => {
             submitButton.textContent = originalText;
             submitButton.disabled = false;
-        }, 1500);
+        });
     });
 }
 
